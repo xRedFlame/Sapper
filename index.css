@@ -1,13 +1,15 @@
 html, body {
-    height: 100%;
+    height: 100vh;
     display: flex; /*Превращаем контейнер в flexBox*/
     flex-direction: column;
+    background-image: url("./images/background-grace.jpg");
+    background-position: 100% 100%;
 }
 
 header{
     display: flex;
-    min-height:100px;
-    background-color: #ffff00;
+    height:100px;
+    /*background-image: url("./images/background-sky.jpg");*/
     justify-content: space-around;
     align-items: center;
     flex-grow: 0; /*Запрещаем увеличиваться*/
@@ -20,16 +22,17 @@ header .logo{
 .new-game{
     width: 150px;
     height: 50px;
+    border-radius:9px;
 }
 main{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 50px;
-    padding-top: 50px;
+    /*padding-bottom: 50px;*/
+    /*padding-top: 50px;*/
     flex-grow: 1;
-
+    /*background-image: url("./images/background-grace.jpg");*/
 }
 /*.block{*/
 /*    height: 100px;}*/
@@ -45,17 +48,58 @@ main{
 button{
     width: 40px;
     height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    background: #adadad;
+    box-shadow:
+            inset 0 0 3px 1px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.1),
+            -2px -2px 5px rgba(0, 0, 0, 0.42);
+    transition: .2s;
+}
+button:hover {
+    color: rgba(255,255,255,.9);
+    background: rgb(20,130,20);
+}
+button:active {
+    background: rgb(0,110,0);
+    box-shadow:
+            inset 0 0 5px 3px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.2),
+            -2px -2px 5px rgba(0,0,0,.5);
 }
 
 footer{
-    height: 50px;
+    height: 75px;
     flex-grow: 0; /*Запрещаем увеличиваться*/
     flex-shrink: 0; /*Запрещаем сжиматься*/
-    background-color: #470497;
 }
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /*background-color: #470497;*/
+    padding: 15px;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 .bomb{
     background-image: url("./images/bomb.png");
     background-size: contain;
+    background-color: #ff2446;
 }
 
 .flag {
@@ -64,17 +108,29 @@ footer{
 }
 
 .number1{
-     color: blue;
+    font-family: Comic Sans, cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
     vertical-align: middle;
     text-align: center;
  }
 .number2{
-    color: red;
-    vertical-align: middle;
-    text-align: center;
-}
-.number3{
+    font-family: Comic Sans, cursive;
+    font-size: 20px;
+    font-weight: bold;
     color: green;
     vertical-align: middle;
     text-align: center;
 }
+.number3 {
+    font-family: Comic Sans, cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*Анимация кнопок*/
+

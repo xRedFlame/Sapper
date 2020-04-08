@@ -1,10 +1,11 @@
+let gameButtons;
 onload = function () { // загрузка окна
     //Инициализируем элементы
-    let newGameButton = document.querySelector('.new-game').onclick = newGame
-    let gameButtons = document.querySelectorAll(".palette > button");
+    let newGameButton = document.querySelector('.new-game').onclick = newGame;
+    gameButtons = document.querySelectorAll(".palette > button");
     oncontextmenu = function () {
         return false;
-    }
+    };
     initGameButtons(gameButtons);
     createBombs();
 };
@@ -24,12 +25,12 @@ let initGameButtons = function (gameButtons) {
                 gameButton.classList.add("flag");
             }
             return false;
-        }
+        };
         gameButton.onclick = function () {
             checkBomb(gameButton);
         }
     }
-}
+};
 
 fieldSize = 7;
 bombsCount = Math.round(fieldSize * fieldSize / 4);
@@ -48,7 +49,7 @@ let createBombs = function () {
 
 let randomInt = function (min, max) {
     return Math.round(min + Math.random() * max);
-}
+};
 
 let checkBomb = function (button) {
     if (button.classList.contains("flag")) return;
@@ -66,8 +67,23 @@ let explosion = function (button) {
 
 let openSquare = function (button) {
     let nearBombsCount = calculateNearBombs(button.coordinate);
+    // if (nearBombsCount === 0) {
+    //     let nearSquareCoordinates = getNearSquareCoordinates(button.coordinate);
+    //     for (let coordinate of nearSquareCoordinates) {
+    //         for (let nearButton of gameButtons) {
+    //             if (nearButton.coordinate === coordinate) {
+    //                 openSquare(nearButton);
+    //             }
+    //         }
+    //     }
+    // }
     button.innerText = nearBombsCount;
-}
+    switch (nearBombsCount) {
+        case 1: button.classList.add("number1"); break;
+        case 2: button.classList.add("number2"); break;
+        default: button.classList.add("number3"); break;
+    }
+};
 
 let calculateNearBombs = function (coordinate) {
     let nearBombCount = 0;
@@ -79,7 +95,7 @@ let calculateNearBombs = function (coordinate) {
 };
 
 let getNearSquareCoordinates = function (coordinate) {
-    let nearSquareCoordinates = []
+    let nearSquareCoordinates = [];
     //все левые
     if (coordinate % fieldSize !== 0) {
         nearSquareCoordinates.push(coordinate - 1);
