@@ -1,0 +1,77 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    height:100px;
+    background-color: #ffff00;
+    justify-content: space-around;
+    align-items: center;
+}
+header .logo{
+    font-family: "Droid Serif", serif;
+    font-size: 90px;
+}
+.new-game{
+    width: 150px;
+    height: 50px;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.palette{
+    display: flex;
+    flex-wrap: wrap;
+    width:280px;
+    /*height: 280px;*/
+    border: 1px solid black;
+}
+.control{
+    display: flex;
+    flex-wrap: wrap;
+    width:280px;
+    border: 1px solid red;
+}
+button{
+    width: 40px;
+    height: 40px;
+}
+
+footer{
+    flex: 0 0 auto;
+    height:100px;
+    background-color: #470497;
+    justify-content: space-around;
+    align-items: center;
+}
+.bomb{
+    background-image: url("https://media.cdnandroid.com/ca/38/72/0e/imagen-minesweeper-hd-0thumb.jpg");
+    background-size: contain;
+}
+
+.flag {
+    background-image: url(https://cs5-1.4pda.to/12795019.png);
+    background-size: contain;
+}
+
+.number1{
+     color: blue;
+    vertical-align: middle;
+    text-align: center;
+ }
+.number2{
+    color: red;
+    vertical-align: middle;
+    text-align: center;
+}
+.number3{
+    color: green;
+    vertical-align: middle;
+    text-align: center;
+}
