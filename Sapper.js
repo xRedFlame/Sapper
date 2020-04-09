@@ -1,22 +1,40 @@
-let gameButtons;
 onload = function () { // загрузка окна
     //Инициализируем элементы
-    let newGameButton = document.querySelector('.new-game').onclick = newGame;
-    gameButtons = document.querySelectorAll(".palette > button");
-    oncontextmenu = function () {
-        return false;
-    };
-    initGameButtons(gameButtons);
+    initWindow();
+    initNewGame();
+};
+
+let getGameButtons = function () {
+    return document.querySelectorAll(".palette > button");
+};
+
+let initWindow = function () {
+    document.querySelector('.new-game').onclick = initNewGame;
+};
+
+let initNewGame = function () {
+    bombs = [];
+    clearField();
+    initGameButtons();
     createBombs();
+    openedSquares = [];
 };
 
-let newGame = function () {
-    alert("Новая игра");
+let clearField = function () {
+    for (let button of getGameButtons()) {
+        button.disabled = false;
+        button.classList.remove("bomb");
+        button.classList.remove("flag");
+        button.classList.remove("number1");
+        button.classList.remove("number2");
+        button.classList.remove("number3");
+        button.innerText = "";
+    }
 };
 
-let initGameButtons = function (gameButtons) {
+let initGameButtons = function () {
     let coordinate = 0;
-    for (let gameButton of gameButtons) {
+    for (let gameButton of getGameButtons()) {
         gameButton.coordinate = coordinate++;
         gameButton.oncontextmenu = function () {
             if (gameButton.classList.contains("flag")) {
@@ -62,27 +80,43 @@ let checkBomb = function (button) {
 };
 
 let explosion = function (button) {
-    button.classList.add("bomb");
+    //добавить взрыв указанной бомбы
+    showBombs();
+    gameOver();
 };
 
+let openedSquares = [];
+
 let openSquare = function (button) {
+    if (openedSquares.includes(button.coordinate)) return;
+    openedSquares.push(button.coordinate);
     let nearBombsCount = calculateNearBombs(button.coordinate);
-    // if (nearBombsCount === 0) {
-    //     let nearSquareCoordinates = getNearSquareCoordinates(button.coordinate);
-    //     for (let coordinate of nearSquareCoordinates) {
-    //         for (let nearButton of gameButtons) {
-    //             if (nearButton.coordinate === coordinate) {
-    //                 openSquare(nearButton);
-    //             }
-    //         }
-    //     }
-    // }
-    button.innerText = nearBombsCount;
-    switch (nearBombsCount) {
-        case 1: button.classList.add("number1"); break;
-        case 2: button.classList.add("number2"); break;
-        default: button.classList.add("number3"); break;
+    if (nearBombsCount === 0) {
+        let nearSquareCoordinates = getNearSquareCoordinates(button.coordinate);
+        for (let coordinate of nearSquareCoordinates) {
+            for (let nearButton of getGameButtons()) {
+                if (nearButton.coordinate === coordinate) {
+                    openSquare(nearButton);
+                    break;
+                }
+            }
+        }
+    } else {
+        button.innerText = nearBombsCount;
+        switch (nearBombsCount) {
+            case 1:
+                button.classList.add("number1");
+                break;
+            case 2:
+                button.classList.add("number2");
+                break;
+            default:
+                button.classList.add("number3");
+                break;
+        }
     }
+
+    button.disabled = true;
 };
 
 let calculateNearBombs = function (coordinate) {
@@ -126,4 +160,20 @@ let getNearSquareCoordinates = function (coordinate) {
     }
     return nearSquareCoordinates;
 };
+
+let showBombs = function () {
+    let buttons = getGameButtons();
+    for (let i = 0; i < buttons.length; i++) {
+        if (bombs[i] === true) {
+            buttons[i].classList.add("bomb");
+        }
+    }
+}
+
+let gameOver = function () {
+    for (let button of getGameButtons()) {
+        button.disabled = true;
+    }
+    //TODO Окно Game Over
+}
 
