@@ -76,6 +76,9 @@ let checkBomb = function (button) {
         explosion(button);
     } else {
         openSquare(button);
+        if (openedSquares.length === fieldSize * fieldSize - bombsCount) {
+            winGame();
+        }
     }
 };
 
@@ -171,9 +174,16 @@ let showBombs = function () {
 }
 
 let gameOver = function () {
+    //TODO Окно Game Over
     for (let button of getGameButtons()) {
         button.disabled = true;
     }
-    //TODO Окно Game Over
+}
+
+let winGame = function () {
+    for (let button of getGameButtons()) {
+        button.disabled = true;
+    }
+    alert("Победа!")
 }
 
