@@ -2,8 +2,8 @@ html, body {
     height: 100vh;
     display: flex; /*Превращаем контейнер в flexBox*/
     flex-direction: column;
-    background-image: url("./images/background-grace.jpg");
-    background-position: 100% 100%;
+    background: url("./images/background-grace.jpg") no-repeat;
+    background-size: 100%;
 }
 
 header{
@@ -45,33 +45,6 @@ main{
     border: 1px solid black;
 }
 
-button{
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    border-radius: 5px;
-    background: #adadad;
-    box-shadow:
-            inset 0 0 3px 1px rgba(0,0,0,.8),
-            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
-            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
-            1px 1px 1px rgba(255,255,255,.1),
-            -2px -2px 5px rgba(0, 0, 0, 0.42);
-    transition: .2s;
-}
-button:hover {
-    color: rgba(255,255,255,.9);
-    background: rgb(20,130,20);
-}
-button:active {
-    background: rgb(0,110,0);
-    box-shadow:
-            inset 0 0 5px 3px rgba(0,0,0,.8),
-            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
-            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
-            1px 1px 1px rgba(255,255,255,.2),
-            -2px -2px 5px rgba(0,0,0,.5);
-}
 
 footer{
     height: 75px;
@@ -96,13 +69,52 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/*Стили игровых кнопок*/
+button{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    background: #adadad;
+    box-shadow:
+            inset 0 0 3px 1px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.1),
+            -2px -2px 5px rgba(0, 0, 0, 0.42);
+    transition: .2s;
+}
+button:hover {
+    background: rgb(20,130,20);
+}
+button:active {
+    background: rgb(0,110,0);
+    box-shadow:
+            inset 0 0 5px 3px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.2),
+            -2px -2px 5px rgba(0,0,0,.5);
+}
+button .opened{
+    background: #adadad;
+    box-shadow: none;
+}
 .bomb{
     background-image: url("./images/bomb.png");
     background-size: contain;
-    background-color: #ff2446;
+    background-color: #d61e39;
+}
+.bomb:hover {
+    background-image: url("./images/bomb.png");
+    background-size: contain;
 }
 
 .flag {
+    background-image: url("./images/flag.png");
+    background-size: contain;
+}
+.flag:hover {
     background-image: url("./images/flag.png");
     background-size: contain;
 }
@@ -127,9 +139,45 @@ footer a:hover {
     font-family: Comic Sans, cursive;
     font-size: 20px;
     font-weight: bold;
-    color: red;
+    color: #d61e39;
     vertical-align: middle;
     text-align: center;
+}
+
+
+button:disabled {
+    background-color: #5ed62f;
+    box-shadow:
+            inset 0 0 5px 3px rgba(45, 173, 19, 0.8),
+            inset rgba(42, 173, 92, 0.06) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.2),
+            -2px -2px 5px rgba(0, 0, 0, 0.25);
+}
+.bomb:disabled {
+    background-image: url("./images/explosion.png");
+    background-size: contain;
+    background-color: #d61e39;
+    box-shadow: none;
+}
+
+button:disabled:hover,
+button.number1:disabled:hover,
+button.number2:disabled:hover,
+button.number3:disabled:hover{
+    background: #5ed62f;
+}
+
+.bomb:disabled:hover {
+    background-image: url("./images/explosion.png");
+    background-size: contain;
+    background-color: #d61e39;
+}
+
+.flag:disabled:hover {
+    background-image: url("./images/flag.png");
+    background-size: contain;
+    background: #5ed62f;
 }
 
 /*Анимация кнопок*/
