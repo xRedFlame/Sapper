@@ -186,4 +186,3 @@ let winGame = function () {
     }
     alert("Победа!")
 }
-
