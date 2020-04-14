@@ -1,44 +1,63 @@
- body {
+body {
     height: 100vh;
     display: flex; /*Превращаем контейнер в flexBox*/
     flex-direction: column;
-    background: url("./images/background-grace.jpg") no-repeat;
-    background-size: 100%;
+    /*background: url("./images/background-grace.jpg") no-repeat;*/
+    /*background-size: 100%;*/
 }
- header{
-     display: block;
-     height:150px;
-     /*background-image: url("./images/background-sky.jpg");*/
-     width: 100%;
-     vertical-align: top;
-     text-align: center;
-     background: linear-gradient(#8ac4e1, rgba(225, 135, 40, 0) 120%);
- }
- header .image{
-     display: inline-block;
-     width: 29%;
-     vertical-align: top;
-     text-align: center;
- }
- header .logo{
-     display: inline-block;
-     font-family: "Comic Sans MS", cursive;
-     font-size: 90px;
-     width: 39%;
-     height:100%;
-     vertical-align: top;
-     text-align: center;
- }
- header .button-new-game{
-     display: inline-block;
-     width: 29%;
-     height:150px;
-     vertical-align: top;
-     text-align: center;
-     position:relative;
- }
 
-main{
+header {
+    display: block;
+    height: 150px;
+    /*background-image: url("./images/background-sky.jpg");*/
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+    background: linear-gradient(#8ac4e1, rgba(225, 135, 40, 0) 150%);
+}
+
+header .image {
+    display: inline-block;
+    width: 29%;
+    vertical-align: top;
+    text-align: center;
+}
+
+/*Блок с текстом в хедере*/
+header .logo {
+    display: inline-block;
+    width: 39%;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+
+header .logo h1 {
+    text-align: center;
+    font-family: 'Baloo Tamma', cursive;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 100px;
+    letter-spacing: 5px;
+    top: 30%;
+    position: absolute;
+    margin-top: -40px;
+    text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
+}
+
+/*Блок с кнопкой в хедере*/
+header .button-new-game {
+    display: inline-block;
+    width: 29%;
+    height: 150px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -48,19 +67,16 @@ main{
     flex-grow: 1;
     /*background-image: url("./images/background-grace.jpg");*/
 }
-/*.block{*/
-/*    height: 100px;}*/
 
-.palette{
+.game-field {
     display: flex;
     flex-wrap: wrap;
-    width:280px;
+    width: 280px;
     /*height: 280px;*/
     border: 1px solid black;
 }
 
-
-footer{
+footer {
     height: 75px;
     flex-grow: 0; /*Запрещаем увеличиваться*/
     flex-shrink: 0; /*Запрещаем сжиматься*/
@@ -71,10 +87,10 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    /*background-color: #470497;*/
     padding: 15px;
 }
-footer a{
+
+footer a {
     color: white;
     text-decoration: none;
 }
@@ -84,41 +100,44 @@ footer a:hover {
 }
 
 /*Стили игровых кнопок*/
-button{
+button {
     width: 40px;
     height: 40px;
     display: inline-block;
     border-radius: 5px;
     background: #adadad;
-    box-shadow:
-            inset 0 0 3px 1px rgba(0,0,0,.8),
-            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
-            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
-            1px 1px 1px rgba(255,255,255,.1),
-            -2px -2px 5px rgba(0, 0, 0, 0.42);
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .8),
+    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
+    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255, 255, 255, .1),
+    -2px -2px 5px rgba(0, 0, 0, 0.42);
     transition: .2s;
 }
+
 button:hover {
-    background: rgb(20,130,20);
+    background: rgb(20, 130, 20);
 }
+
 button:active {
-    background: rgb(0,110,0);
-    box-shadow:
-            inset 0 0 5px 3px rgba(0,0,0,.8),
-            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
-            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
-            1px 1px 1px rgba(255,255,255,.2),
-            -2px -2px 5px rgba(0,0,0,.5);
+    background: rgb(0, 110, 0);
+    box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, .8),
+    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
+    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255, 255, 255, .2),
+    -2px -2px 5px rgba(0, 0, 0, .5);
 }
-button .opened{
+
+button .opened {
     background: #adadad;
     box-shadow: none;
 }
-.bomb{
+
+.bomb {
     background-image: url("./images/bomb.png");
     background-size: contain;
     background-color: #d61e39;
 }
+
 .bomb:hover {
     background-image: url("./images/bomb.png");
     background-size: contain;
@@ -128,20 +147,22 @@ button .opened{
     background-image: url("./images/flag.png");
     background-size: contain;
 }
+
 .flag:hover {
     background-image: url("./images/flag.png");
     background-size: contain;
 }
 
-.number1{
+.number1 {
     font-family: Comic Sans, cursive;
     font-size: 20px;
     font-weight: bold;
     color: blue;
     vertical-align: middle;
     text-align: center;
- }
-.number2{
+}
+
+.number2 {
     font-family: Comic Sans, cursive;
     font-size: 20px;
     font-weight: bold;
@@ -149,6 +170,7 @@ button .opened{
     vertical-align: middle;
     text-align: center;
 }
+
 .number3 {
     font-family: Comic Sans, cursive;
     font-size: 20px;
@@ -161,13 +183,13 @@ button .opened{
 
 button:disabled {
     background-color: #5ed62f;
-    box-shadow:
-            inset 0 0 5px 3px rgba(45, 173, 19, 0.8),
-            inset rgba(42, 173, 92, 0.06) -5px -5px 8px 5px,
-            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
-            1px 1px 1px rgba(255,255,255,.2),
-            -2px -2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 0 5px 3px rgba(45, 173, 19, 0.8),
+    inset rgba(42, 173, 92, 0.06) -5px -5px 8px 5px,
+    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255, 255, 255, .2),
+    -2px -2px 5px rgba(0, 0, 0, 0.25);
 }
+
 .bomb:disabled {
     background-image: url("./images/explosion.png");
     background-size: contain;
@@ -178,7 +200,7 @@ button:disabled {
 button:disabled:hover,
 button.number1:disabled:hover,
 button.number2:disabled:hover,
-button.number3:disabled:hover{
+button.number3:disabled:hover {
     background: #5ed62f;
 }
 
@@ -195,76 +217,92 @@ button.number3:disabled:hover{
 
 
 /*Анимация кнопки Новая игра*/
- .btnflip {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     width: 300px;
-     height: 60px;
-     text-align: center;
-     transform-style: preserve-3d;
-     perspective: 1000px;
-     transform-origin: center center;
-     cursor: pointer;
- }
+.btnflip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transform-origin: center center;
+    cursor: pointer;
+    font-family: 'Baloo Tamma', cursive;
+}
 
- .btnflip-item {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     text-align: center;
-     line-height: 60px;
-     font-size: 24px;
-     background-color: rgba(255,255,255, .05);
-     transform-style: preserve-3d;
-     backface-visibility: visible;
-     border-radius: 30px;
-     text-transform: uppercase;
-     color: #fff;
-     transition: 0.2s;
- }
- .btnflip-item:active {
-     box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, .8),
-                    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
-                    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
-                    1px 1px 1px rgba(255, 255, 255, .2),
-                    -2px -2px 5px rgba(0, 0, 0, .5);
- }
- .btnflip-item.btnflip__front {
-     transform: rotateX(0deg) translateZ(20px);
+.btnflip-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, .05);
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+    border-radius: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: 0.5s;
+}
 
- }
- .btnflip:hover .btnflip-item.btnflip__front {
-     transform: rotateX(-180deg) translateZ(20px);
- }
- .btnflip-item.btnflip__back {
-     transform: rotateX(180deg) translateZ(20px);
+.btnflip-item:active {
+    box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, .8),
+    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
+    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255, 255, 255, .2),
+    -2px -2px 5px rgba(0, 0, 0, .5);
+    transition: none;
+}
 
- }
- .btnflip:hover .btnflip-item.btnflip__back {
-     transform: rotateX(0deg) translateZ(20px);
+.btnflip-item.btnflip__front {
+    transform: rotateX(0deg) translateZ(20px);
 
- }
- .btnflip-item.btnflip__center {
-     background: radial-gradient(#08bd21,#325ac3);
-     border: 1px solid #117535;
- }
- .btnflip-item.btnflip__center::before {
-     content: '';
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background: radial-gradient(#08bd21,#325ac3);
-     border-radius: 30px;
-     transform: translateZ(-1px);
-     border: 1px solid #117535;
- }
- .btnflip:hover .btnflip-item.btnflip__center {
-     transform: rotateX(-180deg);
+}
 
- }
+.btnflip:hover .btnflip-item.btnflip__front {
+    transform: rotateX(-180deg) translateZ(20px);
+}
+
+.btnflip-item.btnflip__back {
+    transform: rotateX(180deg) translateZ(20px);
+
+}
+
+.btnflip:hover .btnflip-item.btnflip__back {
+    transform: rotateX(0deg) translateZ(20px);
+
+}
+
+.btnflip-item.btnflip__center {
+    background: radial-gradient(#08bd21, #325ac3);
+    border: 1px solid #117535;
+}
+
+.btnflip-item.btnflip__center::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#08bd21, #325ac3);
+    border-radius: 30px;
+    transform: translateZ(-1px);
+    border: 1px solid #117535;
+}
+
+.btnflip:hover .btnflip-item.btnflip__center {
+    transform: rotateX(-180deg);
+
+}
+/*Всплывающие окна*/
+.win{
+    width: 30%;
+    height: 50%;
+
+}

@@ -5,21 +5,25 @@
     <title> Sapper </title>
     <link rel="stylesheet" type="text/css" href="index.css"/>
     <script type="text/javascript" src="Sapper.js"></script>
+    <script type="text/javascript" src="visual_effects.js"></script>
 </head>
-<body>
+<body style="background: url(./images/background-grace.jpg) no-repeat;
+background-size: 100%;">
 <header>
-    <div class="image"><img src="./images/logo-img.png" alt="Сапёр"></div>
-    <div class="logo">Сапёр</div>
+    <div class="image"><img src="./images/logo-img.png" alt="Sapper" width="150px" height="150px"></div>
+    <div class="logo">
+        <h1>Sapper</h1>
+    </div>
     <div class="button-new-game">
         <a class="btnflip new-game">
-            <span class="btnflip-item btnflip__front">Новая игра</span>
+            <span class="btnflip-item btnflip__front">New game</span>
             <span class="btnflip-item btnflip__center"></span>
-            <span class="btnflip-item btnflip__back">Начать!</span>
+            <span class="btnflip-item btnflip__back">Let's start!</span>
         </a>
     </div>
 </header>
 <main>
-<div class="palette">
+<div class="game-field">
     <button class="number1"></button>
     <button></button>
     <button></button>
@@ -71,6 +75,10 @@
     <button></button>
 </div>
 </main>
+
+<dialog class="win">
+    <h1>Hello</h1>
+</dialog>
 <footer>
     <div class="signature">
         <p><a href="https://github.com/xRedFlame" target="_blank">©xRedFlame</a><br>
