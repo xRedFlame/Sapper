@@ -5,11 +5,17 @@ onload = function () { // загрузка окна
 };
 
 let getGameButtons = function () {
-    return document.querySelectorAll(".palette > button");
+    return document.querySelectorAll(".game-field > button");
 };
 
 let initWindow = function () {
     document.querySelector('.new-game').onclick = initNewGame;
+   for (let element of document.getElementsByClassName("new-game-again")){
+       element.onclick = initNewGame;
+   }
+    for (let element of document.getElementsByClassName("close")){
+        element.onclick = closeDialogWindows;
+    }
 };
 
 let initNewGame = function () {
@@ -18,6 +24,7 @@ let initNewGame = function () {
     initGameButtons();
     createBombs();
     openedSquares = [];
+    closeDialogWindows();
 };
 
 let clearField = function () {
@@ -171,18 +178,22 @@ let showBombs = function () {
             buttons[i].classList.add("bomb");
         }
     }
-}
+};
 
 let gameOver = function () {
-    //TODO Окно Game Over
     for (let button of getGameButtons()) {
         button.disabled = true;
     }
-}
+    document.getElementsByClassName("game-over")[0].showModal();
+};
 
 let winGame = function () {
     for (let button of getGameButtons()) {
         button.disabled = true;
     }
-    alert("Победа!")
-}
+    document.getElementsByClassName("win")[0].showModal();
+};
+let closeDialogWindows=function(){
+    document.querySelector(".win").close();
+    document.querySelector(".game-over").close();
+};
