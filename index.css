@@ -1,3 +1,4 @@
+
 body {
     height: 100vh;
     display: flex; /*Превращаем контейнер в flexBox*/
@@ -48,13 +49,14 @@ header .logo {
 }
 
 /*Блок с кнопкой в хедере*/
-header .button-new-game {
+header .buttons-in-header {
     display: inline-block;
     width: 29%;
     height: 150px;
     vertical-align: top;
     text-align: center;
     position: relative;
+    /*border: 1px solid black;*/
 }
 /*Центральный блок с содержанием*/
 main {
@@ -217,14 +219,51 @@ button.number3:disabled:hover {
 
 
 /*Анимация кнопки Новая игра*/
-.btnflip {
+
+.rules {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20%;
+    left: 25%;
+    width: 150px;
+    height: 30px;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 60px;
     text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transform-origin: center center;
+    cursor: pointer;
+    font-family: 'Baloo Tamma', cursive;
+}
+
+.settings {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    width: 150px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transform-origin: center center;
+    cursor: pointer;
+    font-family: 'Baloo Tamma', cursive;
+}
+
+.new-game {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 300px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
     transform-style: preserve-3d;
     perspective: 1000px;
     transform-origin: center center;
@@ -239,8 +278,6 @@ button.number3:disabled:hover {
     width: 100%;
     height: 100%;
     text-align: center;
-    line-height: 60px;
-    font-size: 24px;
     background-color: rgba(255, 255, 255, .05);
     transform-style: preserve-3d;
     backface-visibility: visible;
@@ -278,7 +315,7 @@ button.number3:disabled:hover {
 
 }
 
-.btnflip-item.btnflip__center {
+ .btnflip-item.btnflip__center {
     background: radial-gradient(#08bd21, #325ac3);
     border: 1px solid #117535;
 }
@@ -298,17 +335,17 @@ button.number3:disabled:hover {
 
 .btnflip:hover .btnflip-item.btnflip__center {
     transform: rotateX(-180deg);
-
 }
+
 /*Всплывающие окно Победа!*/
-.win{
+.dialog-win{
     position: relative;
     width: 40%;
     height: 60%;
     background: url(./images/win1.jpg) no-repeat;
     background-size: 100%;
 }
-.win h1 {
+.win > h1 {
     position: absolute;
     text-align: center;
     font-family: 'Baloo Tamma', cursive;
@@ -317,7 +354,32 @@ button.number3:disabled:hover {
     letter-spacing: 5px;
     text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
 }
-/*Кнопка новая игра в диалоговом окне*/
+
+/*Всплывающие окно Проишрыш!*/
+.dialog-game-over{
+    position: relative;
+    width: 40%;
+    height: 60%;
+    background-image: url(https://media.giphy.com/media/3oKIPwoeGErMmaI43S/giphy.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    transition: 2s;
+}
+.dialog-game-over > h1 {
+    text-align: center;
+    vertical-align: center;
+    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: .75;
+}
+
+/*Кнопка новая игра в dialog-win & dialog-game-over*/
 .new-game-again{
     position: absolute;
     bottom: 10%;
@@ -334,42 +396,60 @@ button.number3:disabled:hover {
 .new-game-again:hover{
     background-color: #d61e39;
 }
-/*Всплывающие окно Проишрыш!*/
-.game-over{
-    position: relative;
-    width: 40%;
-    height: 60%;
-    background-image: url(https://media.giphy.com/media/3oKIPwoeGErMmaI43S/giphy.gif);
-    background-repeat: no-repeat;
-    background-size: 100%;
+
+/*Всплывающие окно Правила*/
+.dialog-rules{
+    position: fixed;
+    top: 60%;
+    left: 85%;
+    max-width: 300px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    background-image: url(./images/dialog-rules-background.jpg);
+    background-size: contain;
     border: none;
-    transition: 2s;
 }
-.lose {
+.dialog-rules > h1 {
     text-align: center;
-    vertical-align: center;
-    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
-    background-size: cover;
-    color: transparent;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    text-transform: uppercase;
-    font-size: 80px;
-    line-height: .75;
+    font-family: 'Baloo Tamma', cursive;
+    color: #fff;
+    font-size: 30px;
+    text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
 }
-
-
-
+.dialog-rules > p {
+    font-family: 'Baloo Tamma', cursive;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+.dialog-rules > ul{
+    font-size: 16px;
+    font-family: 'Baloo Tamma', cursive;
+    color: white;
+}
+.dialog-rules  a {
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Baloo Tamma', cursive;
+    color: white;
+    border: 1px solid white;
+}
 
 
 /*Крестик закрытия*/
 .close {
+   display: block;
     position: absolute;
     right: 10px;
     top: 20px;
     width: 32px;
     height: 32px;
-    opacity: 1;
+    opacity: 0.5;
+    cursor: pointer;
 }
 .close:hover {
     opacity: 1;

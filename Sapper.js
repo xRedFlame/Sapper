@@ -10,12 +10,22 @@ let getGameButtons = function () {
 
 let initWindow = function () {
     document.querySelector('.new-game').onclick = initNewGame;
+    document.querySelector(".rules").onclick = openRules;
+
    for (let element of document.getElementsByClassName("new-game-again")){
        element.onclick = initNewGame;
    }
     for (let element of document.getElementsByClassName("close")){
         element.onclick = closeDialogWindows;
     }
+    for (let element of document.getElementsByClassName("back-to-game")){
+        element.onclick = closeDialogWindows;
+    }
+};
+
+let openRules = function (){
+    document.getElementsByClassName("dialog-rules")[0].show();
+    document.getElementsByClassName("dialog-rules")[0].scrollTop = 0;
 };
 
 let initNewGame = function () {
@@ -184,16 +194,17 @@ let gameOver = function () {
     for (let button of getGameButtons()) {
         button.disabled = true;
     }
-    document.getElementsByClassName("game-over")[0].showModal();
+    document.getElementsByClassName("dialog-game-over")[0].showModal();
 };
 
 let winGame = function () {
     for (let button of getGameButtons()) {
         button.disabled = true;
     }
-    document.getElementsByClassName("win")[0].showModal();
+    document.getElementsByClassName("dialog-win")[0].showModal();
 };
 let closeDialogWindows=function(){
-    document.querySelector(".win").close();
-    document.querySelector(".game-over").close();
+    document.querySelector(".dialog-win").close();
+    document.querySelector(".dialog-game-over").close();
+    document.querySelector(".dialog-rules").close();
 };

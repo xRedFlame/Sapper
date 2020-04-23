@@ -14,11 +14,21 @@ background-size: 100%;">
     <div class="logo">
         <h1>Sapper</h1>
     </div>
-    <div class="button-new-game">
-        <a class="btnflip new-game">
+    <div class="buttons-in-header">
+        <a class="new-game btnflip">
             <span class="btnflip-item btnflip__front">New game</span>
             <span class="btnflip-item btnflip__center"></span>
             <span class="btnflip-item btnflip__back">Let's start!</span>
+        </a>
+       <a class="rules btnflip">
+            <span class="btnflip-item btnflip__front">Rules</span>
+            <span class="btnflip-item btnflip__center"></span>
+           <span class="btnflip-item btnflip__back">Read me!</span>
+        </a>
+        <a class="settings btnflip">
+            <span class="btnflip-item btnflip__front">Settings</span>
+            <span class="btnflip-item btnflip__center"></span>
+            <span class="btnflip-item btnflip__back">Choose level!</span>
         </a>
     </div>
 </header>
@@ -75,17 +85,6 @@ background-size: 100%;">
     <button></button>
 </div>
 </main>
-
-<dialog class="win">
-           <span class="close"></span>
-           <h1 class="winner">You win!</h1>
-           <button class="new-game-again">Play again!</button>
-</dialog>
-<dialog class="game-over">
-    <span class="close"></span>
-    <h1 class="lose">Game over</h1>
-    <button class="new-game-again">Play again!</button>
-</dialog>
 <footer>
     <div class="signature">
         <p><a href="https://github.com/xRedFlame" target="_blank">©xRedFlame</a><br>
@@ -93,5 +92,29 @@ background-size: 100%;">
     </div>
     <script type="text/javascript" src="Sapper.js"></script>
 </footer>
+<dialog class="dialog-win">
+    <span class="close"></span>
+    <h1>You win!</h1>
+    <button class="new-game-again">Play again!</button>
+</dialog>
+<dialog class="dialog-game-over">
+    <span class="close"></span>
+    <h1 class="lose">Game over</h1>
+    <button class="new-game-again">Play again!</button>
+</dialog>
+<dialog class="dialog-rules">
+    <h1>Game rules</h1>
+    <p>Игра "Cапёр" очень проста. </p>
+    <ul>
+        <li>Начните с открытия одной ячейки.</li>
+        <li> Число в ячейке показывает, сколько мин скрыто вокруг данной ячейки.</li>
+        <li>Это число поможет понять вам, где находятся безопасные ячейки, а где находятся бомбы.</li>
+        <li>Что бы пометить ячейку, в которой находится бомба, нажмите её правой кнопкой мыши.</li>
+        <li>Если вы открыли ячейку с миной, то игра проиграна...</li>
+        <li>Игра продолжается до тех пор, пока вы не откроете все не заминированные ячейки.</li>
+    </ul>
+    <p> Удачной игры</p>
+    <a class="back-to-game">Back to the game</a>
+</dialog>
 </body>
 </html>
