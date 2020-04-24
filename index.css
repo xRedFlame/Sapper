@@ -1,15 +1,20 @@
-
+html{
+    height: 100%;
+}
 body {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex; /*Превращаем контейнер в flexBox*/
     flex-direction: column;
+    overflow: hidden;
     /*background: url("./images/background-grace.jpg") no-repeat;*/
     /*background-size: 100%;*/
 }
 
 header {
+    flex: 0 0 auto; /*0 flex-grow, 0 flex-shrink, auto flex-basis*/
     display: block;
-    height: 150px;
+    height: 20%;
     /*background-image: url("./images/background-sky.jpg");*/
     width: 100%;
     vertical-align: top;
@@ -20,8 +25,10 @@ header {
 header .image {
     display: inline-block;
     width: 29%;
+    height: 100%;
     vertical-align: top;
     text-align: center;
+    /*border: 1px solid black;*/
 }
 
 /*Блок с текстом в хедере*/
@@ -31,7 +38,6 @@ header .logo {
     height: 100%;
     vertical-align: top;
     text-align: center;
-    position: relative;
 }
 
  header .logo h1 {
@@ -40,19 +46,16 @@ header .logo {
     width: 100%;
     margin: 0 auto;
     color: #fff;
-    font-size: 100px;
-    letter-spacing: 5px;
-    top: 30%;
-    position: absolute;
-    margin-top: -40px;
-    text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
+    font-size: 6.25em;
+    letter-spacing: 0.125em;
+    text-shadow: -0.01em -0.01em 0 #2196f3, 0.03em 0.03em 0 #2196f3, 0.06em 0.06em 0 #0d47a1;
 }
 
 /*Блок с кнопкой в хедере*/
 header .buttons-in-header {
     display: inline-block;
     width: 29%;
-    height: 150px;
+    height: 100%;
     vertical-align: top;
     text-align: center;
     position: relative;
@@ -64,10 +67,7 @@ main {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /*padding-bottom: 50px;*/
-    /*padding-top: 50px;*/
-    flex-grow: 1;
-    /*background-image: url("./images/background-grace.jpg");*/
+    flex: 1 0 auto; /*1 flex-grow, 0 flex-shrink, auto flex-basis*/
 }
 
 .game-field {
@@ -79,9 +79,8 @@ main {
 }
 
 footer {
-    height: 75px;
-    flex-grow: 0; /*Запрещаем увеличиваться*/
-    flex-shrink: 0; /*Запрещаем сжиматься*/
+    height: 20%;
+    flex: 0 0 auto; /*0 flex-grow, 0 flex-shrink, auto flex-basis*/
 }
 
 footer {
@@ -89,7 +88,7 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    padding: 15px;
+    padding: 2%;
 }
 
 footer a {
@@ -108,11 +107,12 @@ button {
     display: inline-block;
     border-radius: 5px;
     background: #adadad;
-    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .8),
-    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
-    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
-    1px 1px 1px rgba(255, 255, 255, .1),
-    -2px -2px 5px rgba(0, 0, 0, 0.42);
+    box-shadow:
+            inset 0 0 3px 1px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.1),
+            -2px -2px 5px rgba(0,0,0,.5);
     transition: .2s;
 }
 
@@ -122,11 +122,12 @@ button:hover {
 
 button:active {
     background: rgb(0, 110, 0);
-    box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, .8),
-    inset rgba(0, 0, 0, .3) -5px -5px 8px 5px,
-    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
-    1px 1px 1px rgba(255, 255, 255, .2),
-    -2px -2px 5px rgba(0, 0, 0, .5);
+    box-shadow:
+            inset 0 0 5px 3px rgba(0,0,0,.8),
+            inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+            inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+            1px 1px 1px rgba(255,255,255,.2),
+            -2px -2px 5px rgba(0,0,0,.5);
 }
 
 button .opened {
@@ -157,7 +158,7 @@ button .opened {
 
 .number1 {
     font-family: Comic Sans, cursive;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: bold;
     color: blue;
     vertical-align: middle;
@@ -166,7 +167,7 @@ button .opened {
 
 .number2 {
     font-family: Comic Sans, cursive;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: bold;
     color: green;
     vertical-align: middle;
@@ -175,7 +176,7 @@ button .opened {
 
 .number3 {
     font-family: Comic Sans, cursive;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: bold;
     color: #d61e39;
     vertical-align: middle;
@@ -185,11 +186,11 @@ button .opened {
 
 button:disabled {
     background-color: #5ed62f;
-    box-shadow: inset 0 0 5px 3px rgba(45, 173, 19, 0.8),
-    inset rgba(42, 173, 92, 0.06) -5px -5px 8px 5px,
-    inset rgba(255, 255, 255, .5) 5px 5px 8px 5px,
-    1px 1px 1px rgba(255, 255, 255, .2),
-    -2px -2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 0 0.125em 0.075em rgba(45, 173, 19, 0.8),
+    inset rgba(42, 173, 92, 0.06) -0.125em -0.125em 0.2em 0.125em,
+    inset rgba(255, 255, 255, .5) 0.125em 0.125em 0.2em 0.125em,
+    0.025em 0.025em 0.025em rgba(255, 255, 255, .2),
+    -0.05em -0.05em 0.125em rgba(0, 0, 0, 0.25);
 }
 
 .bomb:disabled {
@@ -224,12 +225,12 @@ button.number3:disabled:hover {
     position: absolute;
     top: 20%;
     left: 25%;
-    width: 150px;
-    height: 30px;
+    width: 45%;
+    height: 15%;
     transform: translate(-50%, -50%);
     text-align: center;
-    line-height: 30px;
-    font-size: 16px;
+    line-height: 1.35em;
+    font-size: 1em;
     transform-style: preserve-3d;
     perspective: 500px;
     transform-origin: center center;
@@ -241,12 +242,12 @@ button.number3:disabled:hover {
     position: absolute;
     top: 20%;
     left: 75%;
-    width: 150px;
-    height: 30px;
+    width: 45%;
+    height: 15%;
     transform: translate(-50%, -50%);
     text-align: center;
-    line-height: 30px;
-    font-size: 16px;
+    line-height: 1.35em;
+    font-size: 1em;
     transform-style: preserve-3d;
     perspective: 500px;
     transform-origin: center center;
@@ -258,12 +259,12 @@ button.number3:disabled:hover {
     position: absolute;
     top: 70%;
     left: 50%;
-    width: 300px;
-    height: 50px;
+    width: 90%;
+    height: 30%;
     transform: translate(-50%, -50%);
     text-align: center;
-    line-height: 50px;
-    font-size: 24px;
+    line-height: 1.75em;
+    font-size: 1.5em;
     transform-style: preserve-3d;
     perspective: 1000px;
     transform-origin: center center;
@@ -343,16 +344,17 @@ button.number3:disabled:hover {
     width: 40%;
     height: 60%;
     background: url(./images/win1.jpg) no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    border: none;
 }
-.win > h1 {
-    position: absolute;
+.dialog-win > h1 {
     text-align: center;
     font-family: 'Baloo Tamma', cursive;
     color: #fff;
-    font-size: 80px;
-    letter-spacing: 5px;
-    text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
+    font-size: 5em;
+    letter-spacing: 0.0625em;
+    text-shadow: -0.0125em -0.0125em 0 #2196f3, 0.0375em
+    0.0375em 0 #2196f3, 0.075em 0.075em 0 #0d47a1;
 }
 
 /*Всплывающие окно Проишрыш!*/
@@ -362,9 +364,9 @@ button.number3:disabled:hover {
     height: 60%;
     background-image: url(https://media.giphy.com/media/3oKIPwoeGErMmaI43S/giphy.gif);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     border: none;
-    transition: 2s;
+
 }
 .dialog-game-over > h1 {
     text-align: center;
@@ -375,7 +377,7 @@ button.number3:disabled:hover {
     -moz-background-clip: text;
     -webkit-background-clip: text;
     text-transform: uppercase;
-    font-size: 80px;
+    font-size: 5em;
     line-height: .75;
 }
 
@@ -384,11 +386,12 @@ button.number3:disabled:hover {
     position: absolute;
     bottom: 10%;
     right: 25%;
-    width: 300px;
-    height: 60px;
+    width: 50%;
+    height: 10%;
     text-align: center;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: bold;
+    border-radius:30px;
     cursor: pointer;
     font-family: 'Baloo Tamma', cursive;
 }
@@ -400,54 +403,60 @@ button.number3:disabled:hover {
 /*Всплывающие окно Правила*/
 .dialog-rules{
     position: fixed;
-    top: 60%;
-    left: 85%;
-    max-width: 300px;
-    height: 400px;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 70%;
+    max-width: 20vw;
+    max-height: 60%;
+    /*transform: translate(-50%, -50%);*/
     overflow: auto;
-    background-image: url(./images/dialog-rules-background.jpg);
+    background-image: url(./images/dialog-rules-background2.jpg);
     background-size: contain;
     border: none;
 }
+.dialog-rules::-webkit-scrollbar{
+    width:5%;
+}
+.dialog-rules::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 255, 255, 0.46);
+}
+
 .dialog-rules > h1 {
     text-align: center;
     font-family: 'Baloo Tamma', cursive;
     color: #fff;
-    font-size: 30px;
-    text-shadow: -1px -1px 0 #2196f3, 3px 3px 0 #2196f3, 6px 6px 0 #0d47a1;
+    font-size: 1.875em; /* 30px*/
+    text-shadow: -0.0333em -0.0333em 0 #2196f3, 0.1em 0.1em 0 #2196f3,
+    0.2em 0.2em 0 #0d47a1; /* 1px, 1px, 3px, 3px, 6px, 6px*/
 }
 .dialog-rules > p {
     font-family: 'Baloo Tamma', cursive;
-    font-size: 20px;
+    font-size: 1.25em;
     text-align: center;
     color: white;
 }
 .dialog-rules > ul{
-    font-size: 16px;
+    font-size: 1em;
     font-family: 'Baloo Tamma', cursive;
     color: white;
 }
 .dialog-rules  a {
-    width: 300px;
-    height: 60px;
-    font-size: 20px;
+    width: 20%;
+    height: 10%;
+    font-size: 1.25em;
     font-weight: bold;
     cursor: pointer;
     font-family: 'Baloo Tamma', cursive;
     color: white;
-    border: 1px solid white;
 }
-
 
 /*Крестик закрытия*/
 .close {
    display: block;
     position: absolute;
-    right: 10px;
-    top: 20px;
-    width: 32px;
-    height: 32px;
+    right: 3%;
+    top: 3%;
+    width: 5%;
+    height: 5%;
     opacity: 0.5;
     cursor: pointer;
 }
