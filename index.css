@@ -7,6 +7,7 @@ body {
     display: flex; /*Превращаем контейнер в flexBox*/
     flex-direction: column;
     overflow: hidden;
+    font-size: 1em;
     /*background: url("./images/background-grace.jpg") no-repeat;*/
     /*background-size: 100%;*/
 }
@@ -15,7 +16,6 @@ header {
     flex: 0 0 auto; /*0 flex-grow, 0 flex-shrink, auto flex-basis*/
     display: block;
     height: 20%;
-    /*background-image: url("./images/background-sky.jpg");*/
     width: 100%;
     vertical-align: top;
     text-align: center;
@@ -74,7 +74,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     width: 280px;
-    /*height: 280px;*/
     border: 1px solid black;
 }
 
@@ -337,18 +336,98 @@ button.number3:disabled:hover {
 .btnflip:hover .btnflip-item.btnflip__center {
     transform: rotateX(-180deg);
 }
+/*Всплывающие окно Настройки*/
+.dialog-settings{
+    width: 40%;
+    height: 60%;
+    background-image: url(./images/background-sky.jpg);
+    background-size: cover;
+    border: none;
+    font-family: 'Baloo Tamma', cursive;
+    color: #fff;
+
+}
+.dialog-settings > h1 {
+    text-align: center;
+    font-size: 5em;
+    letter-spacing: 0.0625em;
+    text-shadow: -0.0125em -0.0125em 0 #2196f3, 0.0375em
+    0.0375em 0 #2196f3, 0.075em 0.075em 0 #0d47a1;
+    /*border: 1px solid black;*/
+}
+
+.form-settings{
+    display: flex;
+    justify-content: space-around;
+    margin: -10% auto;
+    /*border: 1px solid black;*/
+    width: 90%;
+    height: 60%;
+    font-size: 1.25em;
+
+}
+.form-settings > .radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 48%;
+    height: 95%;
+    /*border: 1px solid black;*/
+    flex: 0 0 auto;
+}
+.form-settings > .field{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    vertical-align: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 48%;
+    height: 95%;
+    /*border: 1px solid black;*/
+}
+.field input{
+    width: 80%;
+}
+.field label{
+    /*border: 1px solid black;*/
+    width: 100%;
+}
+output {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    margin: 0 5px 10px;
+    text-align: center;
+    padding: 2px 5px;
+    font-family: 'Baloo Tamma', cursive;
+    vertical-align: middle;
+    /*border: 1px solid #cccccc;*/
+    border-radius: 5px;
+}
+.chosen-level{
+    width: 80%;
+    height: 25%;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius:1.5em;
+    cursor: pointer;
+    font-family: 'Baloo Tamma', cursive;
+}
 
 /*Всплывающие окно Победа!*/
 .dialog-win{
     position: relative;
     width: 40%;
     height: 60%;
-    background: url(./images/win1.jpg) no-repeat;
+    background: url(https://media.giphy.com/media/7OXm7rFOJ0ARoeXOCV/giphy.gif) no-repeat;
     background-size: cover;
     border: none;
 }
 .dialog-win > h1 {
     text-align: center;
+    vertical-align: center;
     font-family: 'Baloo Tamma', cursive;
     color: #fff;
     font-size: 5em;
@@ -366,7 +445,6 @@ button.number3:disabled:hover {
     background-repeat: no-repeat;
     background-size: cover;
     border: none;
-
 }
 .dialog-game-over > h1 {
     text-align: center;

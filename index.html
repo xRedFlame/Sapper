@@ -33,55 +33,6 @@ background-size: 100%;">
 </header>
 <main>
 <div class="game-field">
-    <button class="number1"></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
 </div>
 </main>
 <footer>
@@ -115,6 +66,43 @@ background-size: 100%;">
         <li>Игра продолжается до тех пор, пока вы не откроете все не заминированные ячейки.</li>
     </ul>
     <p> Удачной игры</p>
+</dialog>
+<dialog class="dialog-settings">
+    <span class="close"></span>
+    <h1>Game level</h1>
+    <div class="form-settings">
+        <div class="radio">
+            Difficulty level
+            <label>
+                <input type="radio" class="level" name="level" value="Easiest">
+                Easiest
+            </label>
+            <label>
+                <input type="radio" class="level" name="level" value="Easy">
+                Easy
+            </label>
+            <label>
+                <input type="radio" class="level" name="level" value="Medium" checked>
+                Medium
+            </label>
+            <label>
+                <input type="radio" class="level" name="level" value="Hard">
+                Hard
+            </label>
+            <label>
+                <input type="radio" class="level" name="level" value="Nightmare">
+                Nightmare
+            </label>
+        </div>
+        <div class="field">
+        <label class="range-label">
+            Game field size<br>
+            <output class="range-value1"></output> х <output class="range-value2"></output><br>
+           5<input type="range" class="width" min="5" max="15" step="1" value="7">15
+        </label>
+            <button class="chosen-level">Lets play!</button>
+        </div>
+    </div>
 </dialog>
 <!---->
 </body>

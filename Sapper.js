@@ -8,9 +8,16 @@ let getGameButtons = function () {
     return document.querySelectorAll(".game-field > button");
 };
 
+let getFormElems = function() {
+    return document.getElementsByClassName('level');
+};
+
 let initWindow = function () {
     document.querySelector('.new-game').onclick = initNewGame;
     document.querySelector(".rules").onclick = openRules;
+    document.querySelector('.settings').onclick = openSettings;
+    document.querySelector('.chosen-level').onclick = choseLevel;
+    document.querySelector('.width').oninput = checkRangeValue;
 
    for (let element of document.getElementsByClassName("new-game-again")){
        element.onclick = initNewGame;
@@ -21,6 +28,7 @@ let initWindow = function () {
     for (let element of document.getElementsByClassName("back-to-game")){
         element.onclick = closeDialogWindows;
     }
+
 };
 
 let openRules = function (){
@@ -28,12 +36,18 @@ let openRules = function (){
     document.getElementsByClassName("dialog-rules")[0].scrollTop = 0;
 };
 
+let openSettings = function () {
+    document.getElementsByClassName("dialog-settings")[0].showModal()
+};
+
 let initNewGame = function () {
+    generateGameField();
     bombs = [];
     clearField();
     initGameButtons();
     createBombs();
     openedSquares = [];
+    checkRangeValue();
     closeDialogWindows();
 };
 
@@ -67,8 +81,8 @@ let initGameButtons = function () {
     }
 };
 
-fieldSize = 7;
-bombsCount = Math.round(fieldSize * fieldSize / 4);
+let fieldSize = 7;
+let bombsCount = Math.round(fieldSize * fieldSize / 4);
 let bombs = [];
 
 let createBombs = function () {
@@ -207,4 +221,46 @@ let closeDialogWindows=function(){
     document.querySelector(".dialog-win").close();
     document.querySelector(".dialog-game-over").close();
     document.querySelector(".dialog-rules").close();
+    document.querySelector(".dialog-settings").close();
+};
+
+
+
+let choseLevel = function (){
+    let chosenWidth=document.querySelector('.width');
+    fieldSize = chosenWidth.valueAsNumber;
+
+        if(getFormElems()[0].checked){
+            bombsCount = Math.round(fieldSize * fieldSize / 6);
+        }
+        if(getFormElems()[1].checked){
+            bombsCount = Math.round(fieldSize * fieldSize / 5);
+        }
+        if(getFormElems()[2].checked){
+            bombsCount = Math.round(fieldSize * fieldSize / 4);
+        }
+        if(getFormElems()[3].checked){
+        bombsCount = Math.round(fieldSize * fieldSize / 3);
+        }
+        if(getFormElems()[4].checked){
+        bombsCount = Math.round(fieldSize * fieldSize / 2);
+        }
+
+    initNewGame();
+};
+
+let generateGameField=function () {
+    let field = document.querySelector('.game-field');
+    field.innerHTML = "";
+    field.style.width =fieldSize*40 + 'px';
+    for (let i = 1; i <= fieldSize*fieldSize; i++) {
+        let gameButton = document.createElement("button");
+        field.appendChild(gameButton);
+    }
+};
+
+let checkRangeValue = function () {
+    document.querySelector('.range-value1').value = document.querySelector('.width').value;
+    document.querySelector('.range-value2').value = document.querySelector('.width').value;
+
 };
